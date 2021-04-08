@@ -80,6 +80,7 @@ public class EmailTest {
 			
 		}
 
+			
 		// 5 ) buildMimeMessage()
 		
 		@Test
@@ -193,6 +194,18 @@ public class EmailTest {
 			
 			assertEquals(0,socket);
 			
+			
+		}
+		
+		
+		// 10) setFrom(String email)
+	
+		@Test
+		public void testSetFrom() throws Exception{
+			
+			email.setFrom(TEST_EMAIL);
+					
+			assertEquals(email.getFromAddress().getAddress(),"ab@bc.com" );
 			
 		}
 
