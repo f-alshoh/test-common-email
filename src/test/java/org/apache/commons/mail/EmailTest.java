@@ -13,6 +13,7 @@ public class EmailTest {
 			"a.b@c.org", "abcdefghijklmnopqrst@abcdefghijklmnopqrst.com.bd"};
 
 	private static final String VALID_EMAIL = "ab@cd.com";
+	private static final String TEST_EMAIL = "ab@bc.com";
 
 	private EmailConcrete email;
 	
@@ -66,7 +67,13 @@ public class EmailTest {
 		
 		}
 		
-		
+		// 4) addReplyTo(String email, String name)
+		@Test
+		public void testAddReplyTo()throws  EmailException {
+			email.addReplyTo(TEST_EMAIL,"");
+			assertEquals(1, email.getReplyToAddresses().size());
+		}
+
 		
 	
 	
