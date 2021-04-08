@@ -185,6 +185,16 @@ public class EmailTest {
 		}
 
 		
-		
+		// 9) getSocketConnectionTimeout()
+		@Test
+		public void testGetSocketConnectionTimeout() {
+			email.setSocketConnectionTimeout(0);
+			int socket=email.getSocketConnectionTimeout();
+			
+			assertEquals(0,socket);
+			
+			
+		}
+
 	
 }
