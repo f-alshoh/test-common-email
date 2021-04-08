@@ -72,8 +72,69 @@ public class EmailTest {
 		public void testAddReplyTo()throws  EmailException {
 			email.addReplyTo(TEST_EMAIL,"");
 			assertEquals(1, email.getReplyToAddresses().size());
+			
 		}
 
+		// 5 ) buildMimeMessage()
+		
+		@Test
+		public void testbuildMimeMessage1()throws Exception{
+			
+			email.addReplyTo(TEST_EMAIL,"");
+			assertEquals(1, email.getReplyToAddresses().size());
+			
+		}
+				
+		@Test
+		public void testbuildMimeMessage()throws Exception{
+			email.setHostName("localhost");
+			email.setSmtpPort(1234);
+			email.setFrom("a@b.com");
+			email.addTo("c@d.com");
+			email.setSubject("test mail");
+			email.setCharset("ISO-8859-1");
+			email.setContent("test content", "test/plain");
+			email.addCc("test@abc.com");
+			email.addBcc("test2@abc.com");
+			email.addHeader("test", "abc");
+			email.addReplyTo("sss@b.com");
+			email.buildMimeMessage();	
+			//assertEquals()
+		}
+		@Test(expected = EmailException.class)
+		public void testbuildMimeMessage2()throws Exception{
+			email.setHostName("localhost");
+			email.setSmtpPort(1234);
+			email.setFrom("a@b.com");
+			email.addTo("c@d.com");
+			email.setSubject("test mail");
+			email.setCharset("ISO-8859-1");
+			email.setContent("test content", "test/plain");
+			email.addCc("test@abc.com");
+			email.addBcc("test2@abc.com");
+			email.addHeader("test", "abc");
+			email.addReplyTo("sss@b.com");
+			email.setPopBeforeSmtp(true, "localhost", "username", "password");
+			email.buildMimeMessage();		
+		}
+		@Test
+		public void testbuildMimeMessage3()throws Exception{
+			email.setHostName("localhost");
+			email.setSmtpPort(1234);
+			email.setFrom("a@b.com");
+			email.addTo("c@d.com");
+			email.setSubject("test mail");
+			email.setCharset("ISO-8859-1");
+			email.setContent(null, null);
+			email.addCc("test@abc.com");
+			email.addBcc("test2@abc.com");
+			email.addHeader("test", "abc");
+			email.addReplyTo("sss@b.com");
+			email.buildMimeMessage();
+		
+		}
+
+		
 		
 	
 	
