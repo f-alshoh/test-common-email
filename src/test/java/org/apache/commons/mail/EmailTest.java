@@ -47,7 +47,25 @@ public class EmailTest {
 			assertEquals(1,email.headers.size());
 			
 		}
-
+		@Test(expected = IllegalArgumentException.class)
+		public void testAddHeaderEmpty()  throws Exception {
+			email.addHeader("", VALID_EMAIL);
+			assertEquals(null,email.headers.size());
+			
+		}
+		@Test(expected = IllegalArgumentException.class)
+		public void testAddHeaderEmpty2()  throws Exception {
+			email.addHeader(VALID_EMAIL, "");
+			assertEquals(null,email.headers.size());
+			
+		}
+	 
+		@Test 
+		public void addHeaderTestValid(){
+		email.addHeader("abcde@abc.com", "one"); 
+		
+		}
+		
 		
 		
 	
