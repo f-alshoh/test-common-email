@@ -159,5 +159,22 @@ public class EmailTest {
 			assertEquals("smtp.gmail.com", email.getHostName());
 		}
 		
+		// 7) getMailSession	
+		@Test(expected=EmailException.class)
+		public void testGetMaillSession() throws Exception {
+			email.setHostName("");
+			email.getMailSession();
+			
+		}
+		@Test(expected = IllegalArgumentException.class)
+		public void testGetMaillSession1() throws Exception {
+			
+			email.setMailSession(null);
+			String session = email.getHostName();
+			assertEquals("",session);
+			
+		}
+
+		
 	
 }
