@@ -12,7 +12,6 @@ public class EmailTest {
 	private static final String [] TEST_EMAILS = {"ab@bc.com",
 			"a.b@c.org", "abcdefghijklmnopqrst@abcdefghijklmnopqrst.com.bd"};
 
-	private static final String VALID_EMAIL = "ab@cd.com";;
 
 	private EmailConcrete email;
 	
@@ -40,14 +39,9 @@ public class EmailTest {
 			
 		}
 		
-	// 3) addHeader (String name, String value)
-		@Test
-		public void testAddHeader() throws Exception {
-			email.addHeader(VALID_EMAIL,VALID_EMAIL);
-			assertEquals(1,email.headers.size());
-			
-		}
+	
 
+		
 		
 	
 	
