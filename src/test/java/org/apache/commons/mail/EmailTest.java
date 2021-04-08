@@ -176,6 +176,12 @@ public class EmailTest {
 			assertEquals("",session);
 			
 		}
+		
+		@Test (expected = IllegalArgumentException.class)
+		public void testGetMaillSessionWithNull() throws EmailException {
+			email.setMailSession(null);
+			assertEquals(null,email.getMailSession());
+		}
 
 		// 8) getSentDate()
 		@Test
