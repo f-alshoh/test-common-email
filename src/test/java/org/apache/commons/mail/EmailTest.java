@@ -2,6 +2,7 @@ package org.apache.commons.mail;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Session;
@@ -175,6 +176,15 @@ public class EmailTest {
 			
 		}
 
+		// 8) getSentDate()
+		@Test
+		public void testGetSentDate() {
+			Date date=new Date(123);
+			email.setSentDate(date);
+			assertEquals(date,email.getSentDate());
+		}
+
+		
 		
 	
 }
